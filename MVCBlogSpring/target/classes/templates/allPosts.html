@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Blog</title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header" />
+
+<main id="allPosts">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Date</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="post : ${allPosts}">
+            <td>
+                <span th:text="${post.title}"/>
+            </td>
+            <td>
+                <span th:text="${post.body}"/>
+            </td>
+            <td>
+                <span th:text="${#dates.format(post.date, 'dd-MMM-yyyy')}"/>
+            </td>
+            <td>
+                <span th:text="${post.title}"/>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <!--<article th:each="p : ${allPosts}">
+        <h2 class="title" th:text="${p.title}">Post Title</h2>
+        <div class="date">
+            <i>Posted on</i>
+            <span th:text="${#dates.format(p.date, 'dd-MMM-yyyy')}">22-May-2016</span>
+            <span th:if="${p.author}" th:remove="tag">
+                <i>by</i> <span th:text="${p.author.fullname != null ?
+                    p.author.fullname : p.author.username}">Svetlin Nakov</span>
+            </span>
+        </div>
+        <p class="content" th:utext="${p.body}">Post content</p>
+    </article>-->
+
+</main>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>

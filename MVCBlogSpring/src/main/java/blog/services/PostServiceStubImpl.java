@@ -15,6 +15,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class PostServiceStubImpl implements PostService{
+
+    public boolean authenticate(String title, String body, String author) {
+        // Provide a sample password check: username == password
+        return Objects.equals(title, body);
+    }
+
     private List<Post> posts = new ArrayList<Post>() {
         {
             add(new Post(1L, "First Post", "<p>Line #1.</p><p>Line #2</p>", null));

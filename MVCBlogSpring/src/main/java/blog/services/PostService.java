@@ -8,6 +8,7 @@ import java.util.List;
  * Created by Hristo on 05.08.2016 г..
  */
 public interface PostService {
+    boolean authenticate(String title, String body, String author);
     List<Post> findAll();
     List<Post> findLatest5();
     Post findById(Long id);

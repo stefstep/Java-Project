@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Primary
@@ -15,6 +16,11 @@ public class PostServiceJpaImpl implements PostService {
 
     @Autowired
     private PostRepository postRepo;
+
+    public boolean authenticate(String title, String body, String author) {
+        // Provide a sample password check: username == password
+        return Objects.equals(title, body);
+    }
 
     @Override
     public List<Post> findAll() {
