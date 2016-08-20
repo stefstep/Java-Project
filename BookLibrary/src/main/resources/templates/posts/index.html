@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Posts</title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header" />
+
+<main id="allPosts">
+    <div class="row">
+        <div th:if="${posts.getTotalPages() != 1}" class="form-group col-md-11 pagination-centered">
+            <ul class="pagination">
+                <li th:class="${posts.getNumber() == 0} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=1)}">&laquo;</a></li>
+                <li th:class="${posts.getNumber() == 0} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${posts.getNumber()})}">&larr;</a></li>
+                <li th:class="${posts.getNumber() == (page - 1)} ? 'active pointer-disabled'"
+                    th:each="page : ${#numbers.sequence(pager.getStartPage(), pager.getEndPage())}"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a></li>
+                <li th:class="${posts.getNumber() + 1 == posts.getTotalPages()} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${posts.getNumber() + 2})}">&rarr;</a></li>
+                <li th:class="${posts.getNumber() + 1 == posts.getTotalPages()} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize},page=${posts.getTotalPages()})}">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Date</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="post : ${posts}">
+            <td>
+                <span th:text="${post.title}"/>
+            </td>
+            <td>
+                <span th:text="${post.body}"/>
+            </td>
+            <td>
+                <span th:text="${#dates.format(post.date, 'dd-MMM-yyyy')}"/>
+            </td>
+            <td>
+                <span th:text="${post.author.fullname}"/>
+                (<span th:text="${post.author.username}"/>)
+            </td>
+            <td>
+                <a href="#" th:href="@{/posts/confirmdelete/{id}/(id=${post.id})}">Delete</a>
+                <a href="#" th:href="@{/posts/details/{id}/(id=${post.id})}">Details</a>
+                <a href="#" th:href="@{/posts/edit/{id}/(id=${post.id})}">Edit</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="row">
+        <div th:if="${posts.getTotalPages() != 1}" class="form-group col-md-11 pagination-centered">
+            <ul class="pagination">
+                <li th:class="${posts.getNumber() == 0} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=1)}">&laquo;</a></li>
+                <li th:class="${posts.getNumber() == 0} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${posts.getNumber()})}">&larr;</a></li>
+                <li th:class="${posts.getNumber() == (page - 1)} ? 'active pointer-disabled'"
+                    th:each="page : ${#numbers.sequence(pager.getStartPage(), pager.getEndPage())}"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a></li>
+                <li th:class="${posts.getNumber() + 1 == posts.getTotalPages()} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize}, page=${posts.getNumber() + 2})}">&rarr;</a></li>
+                <li th:class="${posts.getNumber() + 1 == posts.getTotalPages()} ? disabled"><a class="pageLink" th:href="@{/posts/index(pageSize=${selectedPageSize},page=${posts.getTotalPages()})}">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>
