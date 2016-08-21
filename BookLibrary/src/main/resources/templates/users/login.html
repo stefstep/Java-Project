@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layout :: site-head">
     <title>Login</title>
@@ -24,10 +24,6 @@
     <div><input type="submit" value="Login"/>
         <a href="register.html" th:href="@{/users/register}">[Go to Register]</a></div>
 </form>
-
-<div sec:authorize="isAuthenticated()">
-    User: <span sec:authentication="name">miquel</span>
-</div>
 
 <footer th:replace="layout :: site-footer" />
 </body>

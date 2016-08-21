@@ -3,6 +3,8 @@ package booklibrary.controllers;
 import booklibrary.models.User;
 import booklibrary.services.NotificationService;
 import booklibrary.services.UserService;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
