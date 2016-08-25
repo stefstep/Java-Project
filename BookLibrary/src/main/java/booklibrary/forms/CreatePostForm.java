@@ -11,10 +11,6 @@ public class CreatePostForm {
     private String title;
 
     private String body;
-/*
-    private Date date;*/
-
-    private String author_id;
 
     public String getTitle() {
         return title;
@@ -30,22 +26,5 @@ public class CreatePostForm {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-  /*  public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-*/
-
-    public String getAuthor_id() {
-        return author_id;
-    }
-
-    public void setAuthor_id(String author_id) {
-        this.author_id = author_id;
     }
 }

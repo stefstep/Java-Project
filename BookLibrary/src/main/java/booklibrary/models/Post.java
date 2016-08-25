@@ -3,6 +3,7 @@ package booklibrary.models;
 import booklibrary.models.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -12,10 +13,12 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 300)
+    @NotNull
+    @Column(nullable = true, length = 300)
     private String title;
 
-    @Lob @Column(nullable = false)
+    @NotNull
+    @Lob @Column(nullable = true)
     private String body;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

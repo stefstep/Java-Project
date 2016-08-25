@@ -21,9 +21,7 @@ public class PostServiceJpaImpl implements PostService {
 
     @Transactional
     @Override
-    public Page<Post> findAllPageable(Pageable pageable) {
-        return postRepo.findAll(pageable);
-    }
+    public Page<Post> findAllPageable(Pageable pageable) { return postRepo.findAll(pageable); }
 
     @Transactional
     @Override
@@ -32,9 +30,7 @@ public class PostServiceJpaImpl implements PostService {
     }
 
     @Override
-    public List<Post> findAll() {
-        return this.postRepo.findAll();
-    }
+    public List<Post> findAll() { return this.postRepo.findAll(); }
 
     @Override
     public List<Post> findLatest5() {
@@ -57,8 +53,5 @@ public class PostServiceJpaImpl implements PostService {
     }
 
     @Override
-    public void deleteById(Long id) {
-
-        this.postRepo.delete(id);
-    }
+    public void deleteById(Long id) { this.postRepo.delete(id); }
 }

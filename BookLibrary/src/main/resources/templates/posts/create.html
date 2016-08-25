@@ -9,34 +9,27 @@
 
 <h1>Create Post</h1>
 
-<form class="form-horizontal" method="post" th:object="${post}">
+<form class="form-horizontal" method="post" th:object="${createPostForm}">
     <div class="form-group">
-        <label class="col-sm-1 control-label">Title:</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control"/>
+        <label class="col-sm-1 control-label" for="title">Title:</label>
+    <div class="col-sm-6">
+    <input class="form-control" id="title" type="text" name="title" th:value="*{title}" />
+    <span class="formError" th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}">Invalid title</span>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-1 control-label">Body</label>
-        <div class="col-sm-6">
-            <textarea class="form-control" rows="10"/>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-1 control-label">Date</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-1 control-label">Author</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control"/>
-        </div>
-    </div>
 
-    <div><input type="submit" value="Create"/></div>
+    <div class="form-group">
+        <label  class="col-sm-1 control-label" for="body" th:value="*{title}">Body:</label>
+        <div class="col-sm-6">
+    <textarea class="form-control" id="body" rows="10" name="body" th:value="*{body}" />
+    <span class="formError" th:if="${#fields.hasErrors('body')}"
+          th:errors="*{body}">Invalid body</span>
+            </div>
+        </div>
 
+    <div><input type="submit" value="Create"/>
+        </div>
 </form>
 
 <footer th:replace="layout :: site-footer" />

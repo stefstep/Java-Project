@@ -30,7 +30,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/users/register", method = RequestMethod.POST)
-    public String registerPage(@ModelAttribute("userForm") User user, @Valid RegisterForm registerForm, BindingResult bindingResult) {
+        public String registerPage(@ModelAttribute("userForm") User user, @Valid RegisterForm registerForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "users/register";

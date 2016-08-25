@@ -1,13 +1,18 @@
 package booklibrary.controllers;
 
 import booklibrary.forms.CreatePostForm;
+import booklibrary.forms.RegisterForm;
 import booklibrary.models.Post;
+import booklibrary.models.User;
 import booklibrary.pagination.Pager;
 import booklibrary.services.NotificationService;
 import booklibrary.services.PostService;
+import booklibrary.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +30,10 @@ public class PostsController {
     private static final int INITIAL_PAGE = 0;
     private static final int INITIAL_PAGE_SIZE = 5;
     private static final int[] PAGE_SIZES = { 5, 10, 20 };
+
+    @Autowired
+    private UserService userService;
+
 
     @Autowired
     private PostService postService;
@@ -63,16 +72,23 @@ public class PostsController {
     }
 
     @RequestMapping("/posts/create")
-    public String createPost(Post post) {
+    public String createPost(CreatePostForm createPostForm) {
         return "posts/create";
     }
 
     @RequestMapping(value = "/posts/create", method = RequestMethod.POST)
-    public String createPage(Model model, @Valid Post post, BindingResult bindingResult) {
+    public String registerPage(@ModelAttribute("postForm") Post post, @Valid CreatePostForm createPostForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "posts/create";
         }
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        post.setTitle(createPostForm.getTitle());
+        post.setBody(createPostForm.getBody());
+        post.setDate(new Date());
+        post.setAuthor(user);
+        //post.setAuthor(user);
 
         postService.create(post);
 
@@ -106,15 +122,30 @@ public class PostsController {
         return "posts/details";
     }
 
-    @RequestMapping("posts/edit/{id}")
-    public String edit(@PathVariable("id") Long id, Model model){
+    @RequestMapping("/posts/edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model, CreatePostForm createPostForm){
+
         Post post = postService.findById(id);
+
         model.addAttribute("post", post);
+
         return "posts/edit";
     }
 
-    @RequestMapping("posts/changedPost")
-    public String saveProduct(Post post){
+    @RequestMapping("**/changePost")
+    public String saveProduct(@ModelAttribute("postForm") Post post, @Valid CreatePostForm createPostForm, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            notifyService.addErrorMessage("Please fill the form correctly!");
+            return "users/register";
+        }
+
+        User user = userService.findById((long)3);
+
+        post.setTitle(createPostForm.getTitle());
+        post.setBody(createPostForm.getBody());
+        post.setDate(new Date());
+        //post.setAuthor((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        post.setAuthor(user);
 
         postService.edit(post);
         notifyService.addInfoMessage("Post change successful");

@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="layout :: site-head">
     <title>Spring MVC Blog</title>
 </head>
 
 <body>
+
 <header th:replace="layout :: site-header" />
+
+<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+    <td>Login</td>
+</sec:authorize>
+<sec:authorize ifNotGranted="ROLE_ANONYMOUS">
+    <td>Logout</td>
+</sec:authorize>
+
+<span sec:authentication="name">Bob</span>
 
 <aside>
     <h2>Recent Posts</h2>

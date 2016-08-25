@@ -44,6 +44,11 @@ public class UserServiceJpaImpl implements UserService {
     }
 
     @Override
+    public User findUserByUsername(String username) {
+        return userRepo.findUserByUsername(username);
+    }
+
+    @Override
     public User edit(User user) {
         return this.userRepo.save(user);
     }

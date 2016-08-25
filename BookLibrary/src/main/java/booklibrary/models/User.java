@@ -25,6 +25,10 @@ public class User {
     @OneToMany(mappedBy = "author")
     private Set<Post> posts = new HashSet<Post>();
 
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    private Set<Role> roles = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -64,6 +68,15 @@ public class User {
     public void setPosts(Set<Post> posts) {
         this.posts = posts;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     public User() {
     }
 
@@ -85,6 +98,8 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password_hash='" + password_hash + '\'' +
                 ", fullname='" + fullname + '\'' +
+                ", posts=" + posts +
+                ", roles=" + roles +
                 '}';
     }
 }
