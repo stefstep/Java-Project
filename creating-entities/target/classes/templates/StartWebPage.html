@@ -1,0 +1,302 @@
+<html>
+<head>
+    <title>Section Content</title>
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../public/css/styles.css" />
+    <link rel="icon" href="../public/img/favicon.ico"/>
+    <script src="../public/javascript/jquery-3.1.0.min.js"
+            th:src="@{/javascript/jquery-3.1.0.min.js}"></script>
+    <script src="../public/javascript/blog-scripts.js" th:src="@{/javascript/blog-scripts.js}"></script>
+    <style>
+        /* CSS Document */
+
+        .offscreen {
+            position: absolute;
+            top: -30em;
+            left: -300em;
+        }
+
+        div#hmenu {
+            margin: 30;
+
+            /*  padding: .1em 0 .1em 0;
+            background: #ddeebb; 70%;*/
+            width:760px;
+            text-align: center;
+            border-left: 100px;
+        }
+
+        div#hmenu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        div#hmenu ul li {
+            margin: 3px;
+            padding: 10px;
+            display: inline;
+            background: #ddeebb;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            border-top: 2px solid midnightblue;
+            border-right: 2px solid midnightblue;
+            text-shadow:  2px 2px  #CCCCCC;
+        }
+
+        div#hmenu ul a:link{
+            margin: 0;
+            padding: .3em .4em .3em .4em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: medium;
+            color: #004415;
+        }
+
+        div#hmenu ul a:visited{
+            margin: 0;
+            padding: .3em .4em .3em .4em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: medium;
+            color: #227755;
+        }
+
+        div#hmenu ul a:active{
+            margin: 0;
+            padding: .3em .4em .3em .4em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: medium;
+            color: #227755;
+        }
+
+        div#hmenu ul a:hover{
+            margin: 0;
+            padding: .3em .4em .3em .4em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: medium;
+            color: #f6f0cc;
+            background-color: #227755;
+        }
+    </style>
+
+    <style type="text/css">
+
+        * {
+            -moz-box-sizing: border-box;
+            -webkkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        container {
+            /* margin: 20px;
+             border: 3px solid black;
+                  */
+            display: flex;
+            flex-direction: column;
+            min-width:520px;
+            min-height: 100vh;
+            /*
+         width:auto 520px;*/
+        }
+        logo{
+            text-align: center;
+            text-shadow:2px 3px 5px red;
+            font-weight: 1500;           
+           height: 80px;
+            min-width: 600px;
+
+        }
+       #title{
+           padding-top: 20px;
+           padding-bottom: 20px;
+           padding-right:150px ;
+           color: blue;
+           font-size: 39px;
+           font: italic bold 39px/50px Georgia, serif;
+       }
+
+        main.main_container{
+            border: 3px solid blue;
+            flex: 1;
+            display: flex;
+            flex-direction: row;/**/
+            min-width: 850px;
+            min-height: 150px;
+        }
+        content.content_main{
+            overflow-y: auto;
+            overflow-x: auto;
+            border-right: 8px solid mediumturquoise;
+            border-top: 8px solid  lightseagreen;
+            margin-right: 18px;
+            flex: 1;/**/
+            box-shadow:inset 0px 0px 10px  lightgray ;
+            padding: 15px;
+        }
+
+        header {
+            height: 80px;
+            min-width: 1150px;
+            border: 3px solid silver;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+           /* display: inline-block;*/
+        }
+         footer {
+            height: 40px;
+            border: 3px solid silver;
+            text-align: center;
+            display:absolute;
+            line-height: 50px;
+        }
+        leftbarout {
+            overflow-y: auto;
+            overflow-x: hidden;
+            border-left: 3px solid lightseagreen;
+            border-top: 5px solid mediumturquoise;
+            background-color: lightskyblue;/* #3F51B5;*/
+            color: #fff;
+            width: 180px;
+            text-align: center;
+            line-width: 150px;
+            box-shadow: inset 0px 0px 5px #000; ;
+            padding: 15px;
+          /*  box-shadow: 0 0 50px #000;*/
+        }
+        rightbarout {
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-top: 18px;
+            color: #333;
+            width: 180px;
+            box-shadow: 0 0 50px #000;
+            text-align: center;
+            line-width: 150px;
+           /* filter: blur(5px);
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+             background-color: #FFC107;
+              background-color: rgba(255,255,255,0.5);
+            */
+            background-color: #FFC107;
+            backdrop-filter: blur(5px);
+        }
+    datebar{
+          float: left;
+    }
+        searchbar{
+            float: right;
+        }
+        logo a{
+            float: left;
+        }
+        #hmenu{
+           position: absolute;
+           top: 0;
+           left:18%;
+        }
+        #login {
+            float: right;
+            position: absolute;
+            top: 0;
+            left: 90%;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+<container>
+    <logo >
+        <a href="index.html" ><img
+                src="../public/img/site-logo.png" /></a>
+       <div id="title"> MAIN LOGO</div>
+    </logo>
+    <bars>
+        <datebar>
+            <script type="text/javascript">
+                var monthNames = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+                var date = new Date();
+                var day = date.getDate();
+                var monthIndex = date.getMonth();
+                var year = date.getFullYear();
+                //console.log(day, monthNames[monthIndex], year);
+                document.write(day + ' ' + monthNames[monthIndex] + ' ' + year);
+            </script>
+        </datebar>
+
+    </bars>
+    <header>
+        <div id="hmenu">
+            <ul>
+                <li><a href="http://www.w3.org/Consortium/activities">W3C Activities</a></li>
+                <li><a href="http://www.w3.org/TR/">W3C Technical Reports</a></li>
+                <li><a href="http://www.w3.org/Consortium/siteindex">W3C Site Index</a></li>
+                <li><a href="http://www.w3.org/Consortium/new-to-w3c">New Visitors</a></li>
+                <li><a href="http://www.w3.org/Consortium/">About W3C</a></li>
+            </ul>
+        </div>
+        <div  id="login" style="height:50px;width: 100px;">
+            <span>Hello, <b>(user)</b> </span>
+            <form method="post">
+                <input type="submit" value="Logout"/>
+            </form>
+
+        </div>
+        </header>
+
+    <main class="main_container">
+        <!--<div class="flex_container"> -->
+        <leftbarout>
+        <leftbar2>
+            <h1>
+                Left bar2
+            </h1>
+        </leftbar2>
+            </leftbarout>
+        <content class="content_main">
+            Contentmain Width/height problem is solved by "Daniel Vassallo"
+            and horizontal scroll-bar problem is solved by "janmoesen".
+            Now who's answer should I accept :) can I select multiple ;) –
+            For any cases set overflow-x to hidden and I prefer to set max-height in order to
+            limit the expansion of the height of the div. Your code should looks like this:
+            Now who's answer should I accept :) can I select multiple ;) –
+            For any cases set overflow-x to hidden and I prefer to set max-height in order to
+            limit the expansion of the height of the div. Your code should looks like this:
+        </content>
+        <rightbarout>
+            <br/>
+            <searchbar>
+                <form method="post">
+                    <input id="search" type="text" name="username"   />
+                    <input type="submit" value="Search"/>
+                </form>
+            </searchbar>
+            <h1>
+                Right bar2 fghfhffh fhfhfghfghfgh
+            </h1>
+        </rightbarout>
+        <!--<div>-->
+    </main>
+
+    <footer>
+        footer
+    </footer>
+
+</container>
+
+</body>
+</html>
