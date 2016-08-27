@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:fragment="site-head">
     <meta charset="UTF-8" />
@@ -18,15 +18,24 @@
                 src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
         <a href="index.html" th:href="@{/}">Home</a>
 
-        <a href="users/login.html" th:href="@{/users/login}">Login</a>
-        <a href="users/register.html" th:href="@{/users/register}">Register</a>
+        <span sec:authorize="isAnonymous()">
+            <a href="users/login.html" th:href="@{/users/login}">Login</a>
+            <a href="users/register.html" th:href="@{/users/register}">Register</a>
+        </span>
         <a href="posts/index.html" th:href="@{/posts/index}">Posts</a>
         <a href="posts/create.html" th:href="@{/posts/create}">Create Post</a>
         <a href="users/index.html" th:href="@{/users}">Users</a>
         <div id="logged-in-info">
-            <form method="post" th:action="@{/logout}">
-                <input type="submit" value="Logout"/>
-            </form>
+            <div sec:authorize="isAuthenticated()">
+                <span>Hello, </span>
+                <span sec:authentication="name"></span>
+                <form method="post" th:action="@{/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <div>Hello Guest!</div>
+            </div>
         </div>
 
     <ul id="messages" th:with="notifyMessages=${session[T(booklibrary.services

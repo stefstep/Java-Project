@@ -11,7 +11,7 @@
 
 <h1>Edit Post</h1>
 
-    <form class="form-horizontal" method="post" th:object="${post}" th:action="@{changePost}">
+    <form class="form-horizontal" method="post" th:object="${post}" th:action="@{changePost/{id}/(id=${post.id})}">
         <div class="form-group">
             <label class="col-sm-1 control-label">Title:</label>
             <div class="col-sm-6">

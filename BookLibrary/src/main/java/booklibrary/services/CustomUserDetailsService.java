@@ -46,6 +46,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 			if (user == null) {
 				return null;
 			}
+
 			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword_hash(), getAuthorities(user));
 		}
 		catch (Exception e){

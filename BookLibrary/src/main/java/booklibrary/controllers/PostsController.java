@@ -18,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -82,13 +84,14 @@ public class PostsController {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "posts/create";
         }
-        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        User myUser = userService.findUserByUsername(user.getUsername());
 
         post.setTitle(createPostForm.getTitle());
         post.setBody(createPostForm.getBody());
         post.setDate(new Date());
-        post.setAuthor(user);
-        //post.setAuthor(user);
+        post.setAuthor(myUser);
 
         postService.create(post);
 
@@ -132,20 +135,23 @@ public class PostsController {
         return "posts/edit";
     }
 
-    @RequestMapping("**/changePost")
-    public String saveProduct(@ModelAttribute("postForm") Post post, @Valid CreatePostForm createPostForm, BindingResult bindingResult){
+    @RequestMapping("**/changePost/{id}")
+    public String saveProduct(@PathVariable("id") Long id, @ModelAttribute("postForm") Post post, @Valid CreatePostForm createPostForm, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "users/register";
         }
 
-        User user = userService.findById((long)3);
+        Post myPost = postService.findById(id);
+
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        User myUser = userService.findUserByUsername(user.getUsername());
 
         post.setTitle(createPostForm.getTitle());
         post.setBody(createPostForm.getBody());
         post.setDate(new Date());
-        //post.setAuthor((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        post.setAuthor(user);
+        post.setAuthor(myUser);
 
         postService.edit(post);
         notifyService.addInfoMessage("Post change successful");

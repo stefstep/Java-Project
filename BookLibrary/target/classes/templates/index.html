@@ -9,15 +9,6 @@
 
 <header th:replace="layout :: site-header" />
 
-<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-    <td>Login</td>
-</sec:authorize>
-<sec:authorize ifNotGranted="ROLE_ANONYMOUS">
-    <td>Logout</td>
-</sec:authorize>
-
-<span sec:authentication="name">Bob</span>
-
 <aside>
     <h2>Recent Posts</h2>
     <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}"
@@ -35,6 +26,7 @@
             <span th:if="${p.author.fullname != null}" th:text="${p.author.fullname}" />
             <span th:if="${p.author.fullname == null}" th:text="${p.author.username}" />
         </div>
+        <br/>
         <p class="content" th:utext="${p.body}">Post content</p>
     </article>
 </main>

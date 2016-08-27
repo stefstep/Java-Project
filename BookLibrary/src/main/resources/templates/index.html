@@ -26,6 +26,7 @@
             <span th:if="${p.author.fullname != null}" th:text="${p.author.fullname}" />
             <span th:if="${p.author.fullname == null}" th:text="${p.author.username}" />
         </div>
+        <br/>
         <p class="content" th:utext="${p.body}">Post content</p>
     </article>
 </main>
