@@ -20,6 +20,7 @@
             <span th:if="${post.author.fullname != null}" th:text="${post.author.fullname}" />
             (<span th:if="${post.author.fullname != null}" th:text="${post.author.username}" />)
         </div>
+        <br/>
         <p class="content" th:utext="${post.body}">Post content</p>
         <form th:action="@{/posts/delete/{id}/(id=${post.id})}" method="post">
             <button type="submit">Delete</button>
