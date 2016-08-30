@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<sidebarUser  th:fragment="sidebar-site"   th:remove="tag">
+    <h1>MENU USER</h1>
+ <ul>
+     <li><a href="../users.html" th:href="@{/users/login}">Login</a></li>
+     <li><a href="../users.html" th:href="@{/users/register}">Regist</a></li>
+     <li><a href="../users.html" th:href="@{/users/findalluser}">Find All</a></li>
+     <li><a href="../users.html" th:href="@{/users/finduser}">Search Friend</a></li>
+     <li><a href="../users.html" th:href="@{/users/edituser}">!!!Edit Profile</a></li>
+     </ul>
+</sidebarUser>
+
+<mainData  th:fragment="mainbar-site"   th:remove="tag">
+    <h1>Меню Users Описание:</h1>
+    При натискане на главното меню се появяват подменюта в лявата кугия в син фон.
+    Някои от функциите нямат достъп ако не сте регистриран.
+    Тук менютатата дават възможност за извършване на всичките операции от CRUD(Create Read Update Delete)
+    <br/>
+      За да участвате във всички места на блога трябва да сте регистриран. Това става от подменю
+    registration.
+    <br/>
+    Има възможност да се публикува ваша снимка,да се търсят конкретни потребители,редактиране на
+    профила ви и др.
+
+</mainData>
+</body>
+</html>

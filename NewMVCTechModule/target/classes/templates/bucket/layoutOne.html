@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="site-head">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/menustyle.css" th:href="@{/css/menustyle.css}" />
+    <link rel="stylesheet" href="/css/menustyle.css" th:href="@{/css/mainstyle.css}" />
+    <link rel="icon" href="/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+    <script src="/javascript/jquery-3.1.0.min.js"
+            th:src="@{/javascript/jquery-3.1.0.min.js}"></script>
+    <script src="/javascript/blog-scripts.js" th:src="@{/javascript/blog-scripts.js}"></script>
+    <meta th:include="this :: head" th:remove="tag"/>
+</head>
+
+<body>
+
+
+<container>
+
+    <title th:fragment="title-logo" th:remove="tag" >
+        <a href="index.html" ><img
+                src="/img/site-logo.png" /></a>
+        <div id="title"> MAIN LOGO</div>
+    </title>
+    <bars th:fragment="bars-part" th:remove="tag" >
+        <div id="datebar">
+            <script type="text/javascript">
+                var monthNames = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+                var date = new Date();
+                var day = date.getDate();
+                var monthIndex = date.getMonth();
+                var year = date.getFullYear();
+                //console.log(day, monthNames[monthIndex], year);
+                document.write(day + ' ' + monthNames[monthIndex] + ' ' + year);
+            </script>
+        </div>
+
+    </bars>
+    <header-part th:fragment="header" th:remove="tag" >
+        <div id="hmenu">
+            <ul>
+                <li><a href="index.html" th:href="@{/}">Home</a></li>
+                <li><a href="users/login.html" th:href="@{/users/login}">Login</a></li>
+                <li><a href="users/register.html" th:href="@{/users/register}">Register</a></li>
+                <li><a href="posts/index.html" th:href="@{/posts}">Posts</a></li>
+                <li><a href="posts/create.html" th:href="@{/posts/create}">Create Post</a></li>
+                <li><a href="users/index.html" th:href="@{/users}">Users</a></li>
+            </ul>
+        </div>
+        <div  id="login" style="height:50px;width: 100px;">
+            <span>Hello, <b>(user)</b> </span>
+            <form method="post">
+                <input type="submit" value="Logout"/>
+            </form>
+
+        </div>
+    </header-part>
+
+    <main class="main_container">
+
+        <!--<div class="flex_container"> -->
+        <leftbar-out th:fragment="leftbarout" th:remove="tag">
+            <h1>
+                Left bar2
+            </h1>
+        </leftbar-out>
+
+
+
+        <content class="content_main">
+            dfgdg
+        </content>
+
+        <rightbar-out th:fragment="rightbarout" th:remove="tag">
+            <br/>
+            <searchbar>
+                <form method="post">
+                    <input id="search" type="text" name="username"   />
+                    <input type="submit" value="Search"/>
+                </form>
+            </searchbar>
+            <h1>
+                Right bar2 fghfhffh fhfhfghfghfgh
+            </h1>
+        </rightbar-out>
+    </main>
+
+    <footer-part th:fragment="footer" th:remove="tag">
+        @copy   footer
+    </footer-part>
+
+</container>
+
+
+</body>
+
+</html>

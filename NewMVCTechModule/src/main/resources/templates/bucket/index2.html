@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout2 ::head-site">
+
+</head>
+<body>
+<header th:replace="layout2 ::header-site" />
+
+<div class="container">
+    <section id="bars" th:replace="layout2 :: section-bars">
+    </section>
+
+    <nav th:replace="layout2 ::nav-site"/>
+
+    <main>
+        <section id="sidebar1" th:replace="layout2 :: section-sidebar1"/>
+
+        <section id="main">
+            Main section
+        </section>
+        <aside th:replace="layout2 :: aside-bars"/>
+
+    </main>
+    <footer th:replace="layout2 :: footer-site"/>
+</div>
+</body>
+</html>

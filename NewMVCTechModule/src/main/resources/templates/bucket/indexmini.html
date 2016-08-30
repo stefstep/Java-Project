@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layoutmini ::head-site">
+
+</head>
+<body>
+<first   th:replace="layoutmini ::first-site" />
+<main>
+
+    <!--<section id="sidebar1"   th:fragment="sidebar-site"  th:remove="tag">-->
+    <section id="sidebar1">
+        sidebar IndexMini
+        <!--<section id="sidebar1">-->
+        <!--<sidebardata    th:replace="sidebar/sidebarIndex ::sidebar-data" />-->
+        <!--</section>-->
+        <!--/*@thymesVar id="msg" type=""*/-->
+        <sidebarIndex  th:replace="${msg}::sidebar-site"/>
+    </section>
+
+    <section id="main">
+        <!-- main page content goes in here -->
+        <maindata    th:replace="maindata/mainIndex ::maindata" />
+    </section>
+
+    <!--<aside  th:fragment="aside-site">-->
+    <aside>
+        <br/>
+        <searchbar>
+            <form method="post">
+                <input id="search" type="text" name="username"   />
+                <input type="submit" value="Search"/>
+            </form>
+        </searchbar>
+        <h1>
+            Right bar2 fghfhffh fhfhfghfghfgh
+        </h1>
+    </aside>
+</main>
+<footer   th:replace="layoutmini ::footer-site" />
+</body>
+</html>

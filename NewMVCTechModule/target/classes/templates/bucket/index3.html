@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout3 ::head-site">
+
+</head>
+<body>
+
+<header   th:replace="layout3 ::header-site" />
+
+<div class="container">
+
+    <section id="bars"  th:replace="layout3 ::section-bars"/>
+
+    <nav   th:replace="layout3 ::nav-site"/>
+
+    <main>
+
+        <section id="sidebar1">
+           <sidebarData    th:replace="sidebar/sidebarIndex ::sidebar-data" />
+           </section>
+
+        <section id="main">
+            <maindata    th:replace="maindata/mainIndex ::maindata" />
+        </section>
+
+        <aside th:replace="layout3 ::aside-site" />
+    </main>
+    <footer th:replace="layout3 ::footer-site" />
+</div>
+</body>
+</html>

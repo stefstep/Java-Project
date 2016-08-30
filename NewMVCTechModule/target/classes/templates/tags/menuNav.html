@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+<body>
+<nav   th:fragment="nav-data" th:remove="tag">
+
+    <!-- navigation menu goes in here   <div >-->
+    <a href="../index.html" style="width: 70px; height: 40px; float: left;"><img
+            src="/img/bookheardform.jpg" style="width: 70px; height: 40px" /></a>
+    <a href="../index.html" style="width: 70px; height: 40px; float: left;"><img
+            src="/img/bookblue.jpg" style="width: 70px; height: 40px" /></a>
+    <ul id="ulmenu">
+        <li id="sidebarhome"><a href="../index.html" th:href="@{/}">Home</a></li>
+        <li id="sidebarbook" ><a href="users/login.html" th:href="@{/books}">Books</a></li>
+        <li id="sidebarevents"><a href="users/login.html" th:href="@{/events}">Events</a></li>
+        <li id="sidebarpost"><a href="users/login.html" th:href="@{/posts}">Posts</a></li>
+        <li id="sidebaruser"><a href="users.html" th:href="@{/users}">Users</a></li>
+       <!-- <li><a href="users/login.html" th:href="@{/users/login}">Login</a></li>
+        <li><a href="users/register.html" th:href="@{/users/register}">Register</a></li>
+        <li><a href="posts/index.html" th:href="@{/posts}">Posts</a></li>
+        <li><a href="posts/create.html" th:href="@{/posts/create}">Create Post</a></li>
+        <li><a href="users/index.html" th:href="@{/users}">Users</a></li>
+        -->
+    </ul>
+    <!--</div>-->
+    <div  id="login" >
+
+        <form method="post">
+            <span>Hello, <b>(user)</b> </span>
+            <input type="submit" value="Logout"/>
+        </form>
+        <button type="button" onclick="location.href='http://www.stackoverflow.com'"
+                style="width: 90px;background-color:darkgrey; border: 5px black; float: right;"><b>Login</b> </button>
+    </div>
+
+    </nav>
+</body>
+</html>

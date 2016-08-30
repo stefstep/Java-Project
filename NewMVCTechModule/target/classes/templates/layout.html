@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:fragment="head-site" >
+    <headin    th:replace="tags/head_html ::head-site"/>
+</head>
+<body>
+
+<header   th:fragment="header-site" >
+    <headerCode   th:replace="tags/header ::headerdata"/>
+</header>
+<div class="container">
+
+    <section id="bars"  th:fragment="section-bars"  >
+        <sectionCode   th:replace="tags/sectionBars ::section-bars"/>
+    </section>
+
+    <nav  th:fragment="nav-site"  >
+        <navin    th:replace="tags/menuNav ::nav-data" />
+    </nav>
+    <main>
+        <section id="sidebar1"   th:fragment="sidebar-site"  th:remove="tag">
+            <!--<section id="sidebar1">-->
+            <!--<sidebardata    th:replace="sidebar/sidebarIndex ::sidebar-data" />-->
+            <!--</section>-->
+        </section>
+
+        <section id="main">
+            <!-- main page content goes in here -->
+            <maindata    th:replace="maindata/mainIndex ::maindata" />
+        </section>
+
+        <aside  th:fragment="aside-site">
+            <asidedata    th:replace="tags/asideSection ::aside-site" />
+        </aside>
+    </main>
+
+    <footer  th:fragment="footer-site">
+        <footerdata    th:replace="tags/footer ::footer-site" />
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<asidedata   th:fragment="aside-site" th:remove="tag">
+    <!-- aside content goes in here -->
+    <br/>
+    <searchbar>
+        <form method="post">
+            <input id="search" type="text" name="username"   />
+            <input type="submit" value="Search"/>
+        </form>
+    </searchbar>
+    <h1>
+         Other things:
+    </h1>
+    <a href="users/login.html" th:href="@{/users/login}">Games</a>
+    <a href="users/register.html" th:href="@{/users/register}">Movies</a>
+    <a href="posts/index.html" th:href="@{/posts/index}">Facebook</a>
+    </asidedata>
+</body>
+</html>

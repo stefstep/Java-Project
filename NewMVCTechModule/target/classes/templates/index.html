@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout ::head-site">
+
+
+</head>
+<body>
+
+<header   th:replace="layout ::header-site" />
+
+<div class="container">
+
+    <section id="bars"  th:replace="layout ::section-bars"/>
+
+    <nav   th:replace="layout ::nav-site">
+
+        </nav>
+
+    <main>
+
+        <section id="sidebar1">
+            <!--/*@thymesVar id="msg" type=""*/-->
+            <sidebarIndex  th:replace="${msg}::sidebar-site"/>
+
+        </section>
+        <section id="main">
+            <!--/*@thymesVar id="msg" type=""*/-->
+            <maindata    th:replace="${msg}::mainbar-site" />
+        </section>
+
+        <aside th:replace="layout::aside-site" />
+    </main>
+
+    <footer th:replace="layout ::footer-site" />
+</div>
+<div id="msgcntrlr" style="display:none">
+    <!--/*@thymesVar id="msg" type="java"*/-->
+    <span th:text="${msg}"></span></div>
+<script>
+    var str=$("div#msgcntrlr").text();
+      //var index=0;
+    if(str.includes('sidebarhome')){
+        str="sidebarhome"; //index=0;
+       // $(str1).css('box-shadow', '0 8px 10px 4px grey');
+    } else if(str.includes('sidebarpost')){
+        str="sidebarpost";// index=1;
+    } else if(str.includes('sidebarevents')){
+        str="sidebarevents";//index=2;
+    } else if(str.includes('sidebarbook')){
+        str="sidebarbook";//index=3;
+    } else if(str.includes('sidebaruser')){
+        str="sidebaruser";//index=4;
+    }
+ var str1="nav li#"+str;
+    //str1= str1.replace(" ", "");
+    //document.writeln(str1);
+    $(str1).css('box-shadow', '0 8px 10px 4px green');
+</script>
+
+</body>
+</html>

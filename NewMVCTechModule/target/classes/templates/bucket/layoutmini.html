@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:fragment="head-site" >
+    <title>Title</title>
+    <link rel="icon" href="/img/favicon.ico"/>
+    <link rel="stylesheet" href="/css/mainstyleWebPage2.css" />
+    <link rel="stylesheet" href="/css/menuNav.css" />
+    <script src="/javascript/jquery-3.1.0.min.js"
+            th:src="@{/javascript/jquery-3.1.0.min.js}"></script>
+    <!-- <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/menustyles.css" />-->
+</head>
+<body>
+<firstpart   th:fragment="first-site"  th:remove="tag">
+<header>
+<!--<header   th:fragment="header-site" >-->
+    <!--header is logo -->
+    <a href="../index.html" ><img
+            src="/img/site-logo.png" /></a>
+    <div id="title"> Блог БИБЛИОТЕКА</div>
+</header>
+
+    <section id="bars">
+    <!--<section id="bars"  th:fragment="section-bars"  >   -->
+        <div id="datebar" style=" background-color: #CCCCCC;">
+        <script type="text/javascript">
+            var monthNames = [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+            var date = new Date();
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+            //console.log(day, monthNames[monthIndex], year);
+            document.write(day + ' ' + monthNames[monthIndex] + ' ' + year);
+        </script>
+    </div>
+        <div id="lang">
+            <a href="../index.html" style="padding: 8px; height:12px"><img
+                    src="/img/bg.gif" /></a>
+            <a href="../index.html" style="padding: 8px"><img
+                    src="/img/en.gif" /></a>
+            <a href="../index.html" style="padding: 8px"><img
+                    src="/img/de.png" /></a>
+        </div>
+    </section>
+
+    <!--<nav  th:fragment="nav-site"  >-->
+    <nav>
+        <!-- navigation menu goes in here   <div >-->
+        <a href="../index.html" style="width: 70px; height: 40px; float: left;"><img
+                src="/img/bookheardform.jpg" style="width: 70px; height: 40px" /></a>
+        <a href="../index.html" style="width: 70px; height: 40px; float: left;"><img
+                src="/img/bookblue.jpg" style="width: 70px; height: 40px" /></a>
+        <ul>
+            <li id="sidebarhome"><a href="../index.html" th:href="@{/}">Home</a></li>
+            <li id="sidebarBook" ><a href="../users/login.html" th:href="@{/books}">Books</a></li>
+            <li id="sidebarEvents"><a href="../users/login.html" th:href="@{/events}">Events</a></li>
+            <li id="sidebarPost"><a href="../users/login.html" th:href="@{/posts}">Posts</a></li>
+            <li id="sidebarUser"><a href="../users/login.html" th:href="@{/users}">Users</a></li>
+            <!-- <li><a href="users/login.html" th:href="@{/users/login}">Login</a></li>
+             <li><a href="users/register.html" th:href="@{/users/register}">Register</a></li>
+             <li><a href="posts/index.html" th:href="@{/posts}">Posts</a></li>
+             <li><a href="posts/create.html" th:href="@{/posts/create}">Create Post</a></li>
+             <li><a href="users/index.html" th:href="@{/users}">Users</a></li>
+             -->
+        </ul>
+        <!--</div>-->
+        <div  id="login" >
+
+            <form method="post">
+                <span>Hello, <b>(user)</b> </span>
+                <input type="submit" value="Logout"/>
+            </form>
+            <button type="button" onclick="location.href='http://www.stackoverflow.com'"
+                    style="width: 90px;background-color:darkgrey; border: 5px black; float: right;"><b>Login</b> </button>
+        </div>
+
+    </nav>
+    </firstpart>
+
+   <!-- <footer  th:fragment="footer-site">-->
+    <footer th:fragment="footer-site" >
+        <!-- footer content goes in here -->
+        @copyright footer
+    </footer>
+
+
+</body>
+</html>

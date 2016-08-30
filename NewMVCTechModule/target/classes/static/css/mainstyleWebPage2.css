@@ -1,0 +1,125 @@
+
+div.container {
+    /* margin: 20px;
+     border: 3px solid black;
+          */
+    display: flex;
+    flex-direction: column;
+    min-width:520px;
+    min-height: 100vh;
+    /*
+ width:auto 520px;*/
+}
+
+header{
+    text-align: center;
+    text-shadow:2px 3px 5px red;
+    font-weight: 900;
+    height: 140px;
+    min-width: 600px;
+    color: blue;
+    font-size: 39px;
+    font: italic bold 39px/50px Georgia, serif;
+    background-color: lightgoldenrodyellow;
+
+        /*#FFC107;*/
+}
+
+header a{
+    float: left;
+}
+header div#title {
+    padding-top: 40px;
+}
+section#bars{
+    /* background-color: #FFC107;*/
+     overflow-y: auto;
+        overflow-x: hidden;
+    background-color: lightgreen;
+    height: 21px;
+}
+section#bars #lang{
+    float:right;
+}
+section#bars #datebar{
+    float:left;
+}
+
+section#sidebar1 {
+    width: 180px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-left: 3px solid lightseagreen;
+    border-top: 5px solid mediumturquoise;
+    background-color: lightskyblue;/* #3F51B5;*/
+    color: #fff;
+    text-align: center;
+    line-width: 150px;
+    box-shadow: inset 0px 0px 5px #000; ;
+    padding: 15px;
+    /*  box-shadow: 0 0 50px #000;*/
+}
+section#sidebar1 h1 {
+    text-shadow: 0px 0 #ddeebb, 0 1px #ddeebb, 1px 0 #ddeebb, 0 -1px #ddeebb;/*black;*/
+box-shadow: 2px 3px 5px 2px red;
+    font-style: italic;
+    color:green;/*  #ddeebb;*/
+}
+section#sidebar1 li {
+    text-align: left;
+    font-size: 22px;
+    /*float: ;*/
+
+}
+section#sidebar1 li:hover {
+ background-color: #e5e5e5;
+    color: #111111;
+    font-size: 24px;
+}
+section#main{
+    overflow-y: auto;
+    overflow-x: auto;
+    border-right: 8px solid mediumturquoise;
+    border-top: 8px solid  lightseagreen;
+    margin-right: 18px;
+    flex: 1;/**/
+    box-shadow:inset 0px 0px 10px  lightgray ;
+    padding: 35px;
+}
+aside {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 18px;
+    color: #333;
+    width: 180px;
+    box-shadow: 0 0 50px #000;
+    text-align: center;
+    line-width: 150px;
+    /* filter: blur(5px);
+     -webkit-filter: blur(5px);
+     -moz-filter: blur(5px);
+     -o-filter: blur(5px);
+     -ms-filter: blur(5px);
+      background-color: #FFC107;
+       background-color: rgba(255,255,255,0.5);
+     */
+    background-color: #FFC107;
+    backdrop-filter: blur(5px);
+}
+
+footer {
+    height: 40px;
+    border: 3px solid silver;
+    text-align: center;
+    /*display:absolute;*/
+    line-height: 50px;
+}
+
+main{
+    border: 3px solid blue;
+    flex: 1;
+    display: flex;
+    flex-direction: row;/**/
+    min-width: 850px;
+    min-height: 150px;
+}

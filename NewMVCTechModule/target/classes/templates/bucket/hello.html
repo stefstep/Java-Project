@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout ::head-site">
+</head>
+<body>
+<!--Message from the model:-->
+/*@thymesVar id="msg" type="java"*/
+<span th:text="fff" ></span>.
+<!--${msg}-->
+
+
+<header   th:replace="layout ::header-site" />
+
+<div class="container">
+
+    <section id="bars"  th:replace="layout ::section-bars"/>
+
+    <nav   th:replace="layout ::nav-site"/>
+
+    <main>
+
+        <section id="sidebar1">
+            <!--/*@thymesVar id="msg" type="java"*/-->
+            <!--/*@thymesVar id="sidebar" type="java"*/-->
+            Proba.${msga}
+            ${sidebar}
+        </section>
+
+        <section id="main">
+            <maindata    th:replace="maindata/mainIndex ::maindata" />
+        </section>
+
+        <aside th:replace="layout ::aside-site" />
+    </main>
+    <footer th:replace="layout ::footer-site" />
+</div>
+</body>
+</html>

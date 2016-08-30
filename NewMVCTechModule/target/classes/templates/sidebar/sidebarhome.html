@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<sidebarData  th:fragment="sidebar-site"   th:remove="tag">
+    <!-- sidebar content goes in here -->
+    <h1> HOME</h1>
+    <ul id="sidebar">
+        <li id="first"><a href="../index.html" th:href="@{/users/login}">About Us</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">What is book?</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Last posts</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Login</a></li>
+        <li>Search client</li>
+    </ul>
+
+
+    </sidebarData>
+
+<mainData  th:fragment="mainbar-site"   th:remove="tag">
+    <h1>Меню HOMЕ описание на проекта:</h1>
+    Това е блог,който е насочен главно към книгите и събитията свързани на тази тема.
+    Тук се съчетават няколко възможности за обмяна на информация:
+      1.Публикуване на книга с информация за нея
+      2.Публикуване на авторска статия или споделяне на друга такава
+      3.Публикуване на покани и информация за събития свързани с литературата
+      4.Възможност за коментари и публикуване на информация имат само регистрираните потребители.
+    <br/>
+    Тук може да се съчетае блог за показване на авторски публикции от потребителите.
+    Това се прави от меню POST. <br/>
+     Също може да се публикува любима книга върху,която да се беседва.
+    Както и потребител може да публикува събитие,но при определените условия на сайта.
+     Последното става от меню Events.
+    <br/>
+    При натискане на главното меню се появяват подменютата в десния бар със син фон.
+
+</mainData>
+</body>
+</html>

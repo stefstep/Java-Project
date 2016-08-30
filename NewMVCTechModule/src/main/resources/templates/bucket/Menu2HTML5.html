@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function changeColor (thisColor) {
+        document.getElementById('myPic').style.borderColor = thisColor;
+    }
+</script>
+<img id="myPic" src="/pix/places/boracay-resort-200x150.jpg" contextmenu="photoMenu" style="float:left;border:10px solid black;" alt="Photo of resort on Boracay Island, Philippines">
+<p style="width:140px;float:left;padding-left:8px;">Right click on the image to invoke the context menu. <strong>Note</strong>: Only supported in Firefox at time of writing.</>
+<menu type="context" id="photoMenu">
+    <menu label="Change Border Color...">
+        <menuitem label="Black (default)" onclick="changeColor('black');"></menuitem>
+        <menuitem label="Orange" onclick="changeColor('orange');"></menuitem>
+        <menuitem label="Red" onclick="changeColor('red');"></menuitem>
+        <menuitem label="Green" onclick="changeColor('green');"></menuitem>
+        <menuitem label="Blue" onclick="changeColor('blue');"></menuitem>
+    </menu>
+</menu>
+</body>
+</html>

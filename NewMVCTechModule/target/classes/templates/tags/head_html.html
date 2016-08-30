@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<headin   th:fragment="head-site" th:remove="tag">
+    <title>Title</title>
+    <link rel="icon" href="/img/favicon.ico"/>
+    <link rel="stylesheet" href="/css/mainstyleWebPage2.css" />
+    <link rel="stylesheet" href="/css/menuNav.css" />
+    <script src="/javascript/jquery-3.1.0.min.js"
+            th:src="@{/javascript/jquery-3.1.0.min.js}"></script>
+    <script src="/javascript/blog-scripts.js" th:src="@{/javascript/blog-scripts.js}"></script>
+    <meta th:include="this :: head" th:remove="tag"/>
+    <!-- <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/menustyles.css" />-->
+</headin>
+</body>
+</html>

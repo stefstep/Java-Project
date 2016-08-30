@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Register</title>
+</head>
+<body>
+<header th:replace="layout :: site-header" />
+<style>
+   main{
+    margin-left:80px;
+   }
+    main #register{
+      font: italic bold 30px/50px Georgia, serif;
+        font-weight: 700;
+      text-align:left;
+     margin-left:10%;
+    }
+    main div{
+    padding-top:10px;
+      font-weight: 700;
+      margin-top:5px;
+    }
+   main form input{
+    color: black;
+     border: 1px solid lightblue;
+    /*font-size: 21px;*/
+    width:210px;
+    font: bold 18px/45px;
+      box-shadow:0px 5px 5px  lightgray ;
+    height:23px;
+    /*font: italic bold 39px/50px Georgia, serif;*/
+    }
+</style>
+<main>
+
+<h1 id="register">Register in the Blog</h1>
+    <div  style="float:left;" >
+<form method="post" th:object="${registerForm}" style="float:center">
+    <div><label for="username">Username:  </label></div>
+    <input id="username" type="text" name="username" th:value="*{username}" />
+    <span class="formError" th:if="${#fields.hasErrors('username')}"
+          th:errors="*{username}">Invalid username</span>
+    <span th:text="${Checkuser}">CheckUser:</span>
+    <!--<div th:text="${Checkmsg}">Check:</div>-->
+    <!--/*@thymesVar id="Checkmsg" type="java"*/-->
+
+    <div><label for="password" th:value="*{username}">Password:</label></div>
+    <input id="password" type="password" name="password_hash" th:value="*{password_hash}" />
+    <span class="formError" th:if="${#fields.hasErrors('password_hash')}"
+          th:errors="*{password_hash}">Invalid password</span>
+
+
+
+    <div><label for="fullname" th:value="*{username}">Fullname:</label></div>
+    <input id="fullname" type="text" name="fullname" th:value="*{fullname}" style=""/>
+    <span class="formError" th:if="${#fields.hasErrors('fullname')}"
+          th:errors="*{fullname}">Invalid fullname</span>
+
+    <div><label for="email" th:value="*{username}">Email:</label></div>
+    <input id="email" type="text" name="email" th:value="*{email}" />
+    <span class="formError" th:if="${#fields.hasErrors('fullname')}"
+          th:errors="*{email}">Invalid fullname</span>
+    <span th:text="${Checkmeil}">CheckMeil:</span>
+  <!--
+    <div><label for="picturelink" th:value="*{username}">Picture:</label></div>
+    <input id="picturelink" type="text" name="picturelink" th:value="*{picturelink}" />
+    <span class="formError" th:if="${#fields.hasErrors('picturelink')}"
+          th:errors="*{picturelink}">Invalid fullname</span>
+-->
+    <div><input type="submit" value="Register"/>
+        <a href="register.html" th:href="@{/users/register}">[Go to Login]</a></div>
+
+</form>
+</div>
+<div    style="float:left;border-left:20px;display:block">
+    <iframe src="http://www.w3schools.com" height="310" width="300">
+<form method="post" action="user/register" enctype="multipart/form-data" >
+
+
+        <h3>Add picture (if you like):</h3>
+        <img src="No pictur" alt="No picture" width="90px" height="130px"/>
+        <br/>
+        <input type="file" name="datafile" size="40" style="background:yellow;"/>
+        <input type="submit" value="Send"/>
+
+</form>
+        </iframe>
+</div>
+    </main>
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>

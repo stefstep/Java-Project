@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout ::head-site">
+
+
+</head>
+<body>
+
+<header   th:replace="layout ::header-site" />
+
+<div class="container">
+
+    <section id="bars"  th:replace="layout ::section-bars"/>
+
+    <nav   th:replace="layout ::nav-site">
+
+    </nav>
+
+    <main>
+
+        <section id="sidebar1">
+            <sidebarIndex  th:replace="sidebar/sidebaruser::sidebar-site"/>
+        </section>
+        <section id="main">
+            <!--/*@thymesVar id="msg" type=""*/-->
+            <maindata    th:replace="${msg}::user-site" />
+        </section>
+
+        <aside th:replace="layout::aside-site" />
+    </main>
+
+    <footer th:replace="layout ::footer-site" />
+</div>
+
+<!--<div id="msgcntrlr" style="display:none">
+    <span th:text="${msg}"></span></div>-->
+<script>
+    var str1="nav li#sidebaruser";
+    //str1= str1.replace(" ", "");
+    //document.writeln(str1);
+    $(str1).css('box-shadow', '0 8px 10px 4px green');
+</script>
+
+</body>
+</html>

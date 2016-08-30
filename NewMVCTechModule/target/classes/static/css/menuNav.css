@@ -1,0 +1,79 @@
+
+/* CSS Document */
+/* nav #hmenu {*/
+nav {
+    height: 55px;
+    background-color: white;
+    text-align: center;
+}
+nav ul{
+    position: absolute;
+    min-width:560px;
+    top:165px;
+    left:20%;
+}
+
+nav ul li {
+    margin: 3px;
+    padding: 10px;
+    display: inline;
+    background: #ddeebb;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-top: 2px solid midnightblue;
+    border-right: 2px solid midnightblue;
+    text-shadow:  2px 2px  #CCCCCC;
+    box-shadow: 0 4px 5px 2px gray;
+}
+
+nav ul a:link{
+    margin: 0;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:20px; /*medium;*/
+    color:black;   /* #004415;*/
+}
+
+nav ul a:visited{
+    margin: 0;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:20px; /*medium;*/
+    color: #227755;
+}
+nav ul a{
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    padding: 0px;
+    margin: 0px;
+}
+nav ul a:active{
+    margin: 0;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:20px; /*medium;*/
+    color: #227755;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+nav ul a:hover{
+    margin: 0;
+    padding: .6em .4em .6em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:20px; /*medium;*/
+    color: black; /* #f6f0cc;*/
+    background-color: #227755;
+}
+
+nav div#login {
+    position: absolute;
+    top: 165px;
+    right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 10; /* */
+}

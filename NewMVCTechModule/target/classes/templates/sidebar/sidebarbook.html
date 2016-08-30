@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<sidebarPost  th:fragment="sidebar-site"   th:remove="tag">
+    <h1> MENU BOOKS</h1>
+    <ul>
+        <li><a href="../index.html" th:href="@{/users/login}">Last 5 books</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Search book</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">New book</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Edit your book</a></li>
+        <li>Search book by user</li>
+        </ul>
+</sidebarPost>
+
+<mainData  th:fragment="mainbar-site"   th:remove="tag">
+    <h1>Меню Books Описание:</h1>
+     При натискане на главното меню се появяват подменюта в лявата кугия в син фон.
+    Някои от функциите нямат достъп ако не сте регистриран.
+       Тук менютатата дават възможност за извършване на всичките операции от CRUD(Create Read Update Delete)
+    <br/>
+     Това включва публикуване на нова книга и всички операции по тази публикация
+    <br/>
+    Има възможност да се извършва търсене на книга по заглавие,автор ..
+
+</mainData>
+</body>
+</html>

@@ -1,0 +1,125 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    /* margin: 20px;
+     border: 3px solid black;
+          */
+    display: flex;
+    flex-direction: column;
+    min-width:520px;
+    min-height: 100vh;
+    /*
+ width:auto 520px;*/
+}
+title{
+    text-align: center;
+    text-shadow:2px 3px 5px red;
+    font-weight: 900;
+    height: 80px;
+    min-width: 600px;
+
+}
+#title{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right:150px ;
+    color: blue;
+    font-size: 39px;
+    font: italic bold 39px/50px Georgia, serif;
+}
+
+main.main_container{
+    border: 3px solid blue;
+    flex: 1;
+    display: flex;
+    flex-direction: row;/**/
+    min-width: 850px;
+    min-height: 150px;
+}
+.content.content_main{
+    overflow-y: auto;
+    overflow-x: auto;
+    border-right: 8px solid mediumturquoise;
+    border-top: 8px solid  lightseagreen;
+    margin-right: 18px;
+    flex: 1;/**/
+    box-shadow:inset 0px 0px 10px  lightgray ;
+    padding: 15px;
+}
+
+header {
+    height: 80px;
+    min-width: 1150px;
+    border: 3px solid silver;
+    text-align: center;
+    line-height: 50px;
+    position: relative;
+    /* display: inline-block;*/
+}
+footer {
+    height: 40px;
+    border: 3px solid silver;
+    text-align: center;
+   /* display: absolute;*/
+    line-height: 50px;
+}
+.leftbarout {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-left: 3px solid lightseagreen;
+    border-top: 5px solid mediumturquoise;
+    background-color: lightskyblue;/* #3F51B5;*/
+    color: #fff;
+    width: 180px;
+    text-align: center;
+    line-width: 150px;
+    box-shadow: inset 0px 0px 5px #000; ;
+    padding: 15px;
+    /*  box-shadow: 0 0 50px #000;*/
+}
+.rightbarout {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 18px;
+    color: #333;
+    width: 180px;
+    box-shadow: 0 0 50px #000;
+    text-align: center;
+    line-width: 150px;
+    /* filter: blur(5px);
+     -webkit-filter: blur(5px);
+     -moz-filter: blur(5px);
+     -o-filter: blur(5px);
+     -ms-filter: blur(5px);
+      background-color: #FFC107;
+       background-color: rgba(255,255,255,0.5);
+     */
+    background-color: #FFC107;
+    backdrop-filter: blur(5px);
+}
+#datebar{
+    float: left;
+}
+.searchbar{
+    float: right;
+}
+title a{
+    float: left;
+}
+#hmenu{
+    position: absolute;
+    top: 0;
+    left:18%;
+}
+#login {
+    float: right;
+    position: absolute;
+    top: 0;
+    left: 90%;
+    z-index: 10;
+}

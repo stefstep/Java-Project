@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Register</title>
+</head>
+<body>
+<header th:replace="layout :: site-header" />
+<style>
+   main{
+    margin-left:80px;
+   }
+    main #register{
+      font: italic bold 30px/50px Georgia, serif;
+        font-weight: 700;
+      text-align:left;
+     margin-left:10%;
+    }
+    main div{
+    padding-top:10px;
+      font-weight: 700;
+      margin-top:5px;
+    }
+
+  main #datauser{
+      color: black;
+     border: 1px solid lightblue;
+    /*font-size: 21px;*/
+    width:210px;
+    font: bold 18px/45px;
+      box-shadow:0px 5px 5px  lightgray ;
+    height:23px;
+    /*font: italic bold 39px/50px Georgia, serif;*/
+     }
+   main form input{
+    color: black;
+     border: 1px solid lightblue;
+    /*font-size: 21px;*/
+    width:210px;
+    font: bold 18px/45px;
+      box-shadow:0px 5px 5px  lightgray ;
+    height:23px;
+    /*font: italic bold 39px/50px Georgia, serif;*/
+    }
+</style>
+<main>
+
+    <h1 id="register">Registered Successfully</h1>
+    <div  style="float:left;" >
+        <form method="post" th:object="${registerForm}" style="float:center">
+            <div><label >Username:  </label></div>
+           <div id="datauser"> $Imeto  </div>
+
+
+            <div><label>Fullname:</label></div>
+            <div id="datauser"> $FullImeto  </div>
+
+            <div><label>Email:</label></div>
+            <div id="datauser"> $Email  </div>
+            <!--
+              <div><label for="picturelink" th:value="*{username}">Picture:</label></div>
+              <input id="picturelink" type="text" name="picturelink" th:value="*{picturelink}" />
+              <span class="formError" th:if="${#fields.hasErrors('picturelink')}"
+                    th:errors="*{picturelink}">Invalid fullname</span>
+          -->
+            <div><input type="submit" value="Edit"/>
+                <a href="register.html" th:href="@{/users/register}">[Go to Login]</a></div>
+
+        </form>
+    </div>
+    <div    style="float:left;border-left:20px;display:inline-block">
+        <iframe src="www.google.bg">
+            <form method="post" action="user/register" enctype="multipart/form-data" >
+
+
+                <h3>Add picture (if you like):</h3>
+                <img src="No pictur" alt="No picture" width="90px" height="130px"/>
+                <br/>
+                <input type="file" name="datafile" size="40" style="background:yellow;"/>
+                <input type="submit" value="Send"/>
+
+            </form>
+            </iframe>
+    </div>
+</main>
+<footer th:replace="layout :: site-footer" />
+</body>
+
+</html>

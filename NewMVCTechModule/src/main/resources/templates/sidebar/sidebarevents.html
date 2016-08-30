@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<sidebarEvent  th:fragment="sidebar-site"   th:remove="tag">
+    <h1>MENU EVENTS</h1>
+    <ul>
+        <li><a href="../index.html" th:href="@{/users/login}">Last events</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Search event</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">New event</a></li>
+        <li><a href="../index.html" th:href="@{/users/regist}">Edit your event</a></li>
+        <li>Search client</li>
+        </ul>
+</sidebarEvent>
+
+<mainData  th:fragment="mainbar-site"   th:remove="tag">
+    <h1>Меню Events Описание:</h1>
+    При натискане на главното меню се появяват подменюта в лявата кутия в син фон.
+    Някои от функциите нямат достъп ако не сте регистриран.
+    Тук менютатата дават възможност за извършване на всичките операции от CRUD(Create Read Update Delete)
+    <br/>
+    Това включва създаване публикация за ново събитие и всички операции по тази публикация
+    Нужно е да се спазват изисквания за типа на публикацията.
+    <br/>
+    Има възможност да се извършва търсене на събитие по категория,заглавие,автор ..
+
+</mainData>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Blog</title>
+
+    <!--<link rel="stylesheet" type="text/css" href="/css/menustyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/mainstyle.css">-->
+</head>
+
+<body>
+<container>
+    <title th:replace="layout :: title-logo"></title>
+
+    <bars th:replace="layout :: bars"></bars>
+
+    <header th:replace="layout ::header">
+    </header>
+    <main class="main_container">
+        <leftbarout th:replace="layout :: leftbarout"></leftbarout>
+
+        <content class="content_main">
+            dfgdg
+        </content>
+
+        <rightbarout th:replace="layout :: rightbarout"/>
+    </main>
+    <footer th:replace="layout :: footer"/>
+</container>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout ::head-site">
+
+</head>
+<body>
+
+<header   th:replace="layout ::header-site" />
+
+<div class="container">
+
+    <section id="bars"  th:replace="layout ::section-bars"/>
+
+    <nav   th:replace="layout ::nav-site"/>
+
+    <main>
+
+        <section id="sidebar1">
+
+            <!--/*@thymesVar id="msg" type="java"*/-->
+            <sidebarIndex  th:replace="sidebar/sidebarpost::sidebar-site"/>
+        </section>
+        <section id="main">
+            <maindata    th:replace="maindata/mainIndex ::maindata" />
+        </section>
+
+        <aside th:replace="layout ::aside-site" />
+    </main>
+    <footer th:replace="layout ::footer-site" />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.theamleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Blog</title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header" />
+
+<main>
+    <article class="post">
+        <h2 class="title" th:text="${findPostById.title}">Title: </h2>
+        <div class="date">
+            <i>Posted on</i>
+            <span th:text="${#dates.format(findPostById.date, 'dd-MMM-yyyy')}"/>
+            <span th:if="${findPostById.author}" th:remove="tag">
+                    <i>by</i> <span th:text="${findPostById.author.fullname != null ?
+                         findPostById.author.fullname : findPostById.author.username}"></span>
+                </span>
+
+        </div>
+        <p class="content" th:utext="${findPostById.body}">Post Content</p>
+    </article>
+</main>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+</html>
